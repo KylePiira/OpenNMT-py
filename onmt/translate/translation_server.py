@@ -197,7 +197,7 @@ class ServerModel:
         opt['src'] = "dummy_src"
 
         for (k, v) in opt.items():
-            sys.argv += ['-%s' % k, str(v)]
+            sys.argv += ['-%s' % k] if v == True else ['-%s' % k, str(v)]
 
         opt = parser.parse_args()
         opt.cuda = opt.gpu > -1
